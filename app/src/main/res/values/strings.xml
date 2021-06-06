@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Feb8</string>
+    <string name="Name">Name</string>
+    <string name="Address">Address</string>
+    <string name="Gender">Gender</string>
+    <string name="Hobbies">Hobbies</string>
+    <string name="Submit">Submit</string>
+    <string name="Cancel">Cancel</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="StartMonitoring">Start Monitoring</string>
+    <string name="StopMonitoring">Stop Monitoring</string>
+    <string name="DriveModeOn">Drive Mode On </string>
+    <string name="DriveModeOff">Drive Mode Off </string>
+    <string name="DriveMode">Drive Mode</string>
+</resources>
