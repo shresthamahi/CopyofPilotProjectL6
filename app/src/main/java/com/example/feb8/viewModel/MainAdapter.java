@@ -2,9 +2,11 @@ package com.example.feb8.viewModel;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -47,6 +49,17 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         Habits data = dataList.get(position);
         //initialize database
         database = RoomDB.getInstance(context);
+
+        holder.btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                database.mainDao().ResetValues();
+                holder.tvinfo.setBackgroundResource(R.color.melon);
+
+                holder.tvinfo.setText("Please reopen this page to view actions");
+
+            }
+        });
         if (HomeFragment.LightUpdateStatus ==1)
         {
             int oldval= data.getLightInfo();
@@ -74,10 +87,14 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         String temp= Integer.toString(data.getLightInfo());
         String temp2= Integer.toString(data.getPostureInfo());
         String temp3= Integer.toString(data.getDrivingInfo());
+        String temp4= Integer.toString(data.getHandsFreeCallInfo());
 
         holder.textViewLight.setText(temp);
         holder.textViewPosture.setText(temp2);
         holder.textViewDriveCalls.setText(temp3);
+        holder.tvHandsFreeCall.setText(temp4);
+
+
     }
 
     @Override
@@ -87,8 +104,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         //Initializing variable
-        TextView textViewLight,textViewPosture,textViewDriveCalls;
-
+        TextView textViewLight,textViewPosture,textViewDriveCalls,tvHandsFreeCall,tvinfo;
+        Button btnReset;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -97,6 +114,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             textViewLight= itemView.findViewById(R.id.tvLight);
             textViewPosture = itemView.findViewById(R.id.tvPosture);
             textViewDriveCalls = itemView.findViewById(R.id.tvDriveCalls);
+            tvHandsFreeCall= itemView.findViewById(R.id.tvHandsFreeCall);
+            btnReset = itemView.findViewById(R.id.buttonReset);
+            tvinfo = itemView.findViewById(R.id.tvInfo);
         }
     }
 

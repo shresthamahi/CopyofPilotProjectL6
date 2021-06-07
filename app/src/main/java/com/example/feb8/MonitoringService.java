@@ -157,12 +157,12 @@ public class MonitoringService extends Service {
         sensorManager.registerListener(lightListener,lightSensor,SensorManager.SENSOR_DELAY_NORMAL);
         sensorManager.registerListener(rvListener,rotationVectorSensor,SensorManager.SENSOR_DELAY_NORMAL);
 
-        calculateTime();
+
 
         return START_NOT_STICKY;
     }
 
-    private void createNotificationChannel() {
+    public void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel serviceChannel = new NotificationChannel(
                     CHANNEL_ID,
@@ -221,34 +221,21 @@ public class MonitoringService extends Service {
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
-    public void calculateTime()
-    {
-        //for now six seconds only
-        new CountDownTimer(6000, 1000) {
 
-            public void onTick(long millisUntilFinished) {
-            }
+    public void addHandsFreeNotification() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "hands-freemode")
+                .setSmallIcon(R.drawable.ic_hands_free_img)
+                .setContentTitle("Use your phone in hands free mode")
 
-            public void onFinish() {
-                //addTimeNotification();
-            }
-        }.start();
-    }
-
-    private void addTimeNotification() {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID3)
-                .setSmallIcon(R.drawable.ic_alarm)
-                .setContentTitle("Your time is up!!")
-
-                .setContentText("Screen time exceeded")
+                .setContentText("Hands free mode")
                 .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText("Screen time exceeded"))
+                        .bigText("Use your phone in hands free mode"))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
 
         // notificationId is a unique int for each notification that you must define
-        notificationManager.notify(4, builder.build());
+        notificationManager.notify(10, builder.build());
     }
 }

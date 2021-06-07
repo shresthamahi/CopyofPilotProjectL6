@@ -18,6 +18,8 @@
     <string name="DashboardLight">Number of times you used your phone in Dark</string>
     <string name="DashboardPosture">Number of times your posture was incorrect</string>
     <string name="DashboardDriveCalls">Number of times your phone rang while you were driving!</string>
+    <string name="DashboardHandsFreeCalls">Number of times you received your calls in hands free mode!</string>
+    <string name="ResetBtn">Reset Values</string>
     <string name="title_activity_user_dashboard">UserDashboard</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

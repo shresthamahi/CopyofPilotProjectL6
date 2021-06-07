@@ -27,6 +27,9 @@ public interface HabitsDao {
     void updateDriveCallInfo(int newVal);
 
 
+    @Query("UPDATE Habits SET drivingInfo = 0,postureInfo=0,lightInfo=0,handsFreeCallInfo=0  where ID =1")
+    void ResetValues();
+
     @Query("SELECT * FROM Habits")
     List<Habits> getAll();
 }

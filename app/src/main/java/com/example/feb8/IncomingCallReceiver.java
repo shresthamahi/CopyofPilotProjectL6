@@ -2,6 +2,7 @@ package com.example.feb8;
 
 
 import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -33,15 +34,16 @@ public class IncomingCallReceiver extends BroadcastReceiver {
     SensorManager sensorManager;
     Sensor proximitySensor;
 
+    MonitoringService monitoringService;
+
     SensorEventListener proxiListener= new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent event) {
             if (event.values[0]==0)
             {
-                //Toast.makeText(, "The status of driving mode is "+ drivingMode, Toast.LENGTH_SHORT).show();
-                //trigger notification Builder
-                // ma.createNotificationChannel();
-                //ma.addNotification();
+               // Toast.makeText(this, "The status of driving mode is "+ drivingMode, Toast.LENGTH_SHORT).show();
+               monitoringService.createNotificationChannel();
+               monitoringService.addHandsFreeNotification();
             }
             else
             {
@@ -66,7 +68,7 @@ public class IncomingCallReceiver extends BroadcastReceiver {
             if (state==1)
             {
                 Toast.makeText(context, "The status of driving mode is "+ drivingMode, Toast.LENGTH_SHORT).show();
-                ////////////////////////////////////////////////////
+
                 if (drivingMode==1) {
                     audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
                     audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
@@ -84,6 +86,9 @@ public class IncomingCallReceiver extends BroadcastReceiver {
                 Toast.makeText(context, "Call is received. call state is "+ state, Toast.LENGTH_SHORT).show();
                 sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
                 proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+                audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+                audioManager.setSpeakerphoneOn(true);
+
                 if (proximitySensor == null) {
                     Toast.makeText(context, "No proximity sensor found in device.", Toast.LENGTH_SHORT).show();
 
@@ -92,6 +97,8 @@ public class IncomingCallReceiver extends BroadcastReceiver {
                     sensorManager.registerListener(proxiListener,
                             proximitySensor,
                             SensorManager.SENSOR_DELAY_NORMAL); }
+
+
 
             }
             else if(state==0)
@@ -111,4 +118,6 @@ public class IncomingCallReceiver extends BroadcastReceiver {
 
 
     }
+
+
 }
