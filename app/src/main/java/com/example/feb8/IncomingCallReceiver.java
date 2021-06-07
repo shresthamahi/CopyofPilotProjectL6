@@ -34,16 +34,19 @@ public class IncomingCallReceiver extends BroadcastReceiver {
     SensorManager sensorManager;
     Sensor proximitySensor;
 
-    MonitoringService monitoringService;
+    final public static String TAG = "Proximity Sensor";
+
+   NotificationClass nc;
 
     SensorEventListener proxiListener= new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent event) {
             if (event.values[0]==0)
             {
-               // Toast.makeText(this, "The status of driving mode is "+ drivingMode, Toast.LENGTH_SHORT).show();
-               monitoringService.createNotificationChannel();
-               monitoringService.addHandsFreeNotification();
+                Log.d(TAG,"Over here inside proxmity Sensors");
+              nc.createNotificationChannel();
+              nc.addHandsFreeNotification();
+
             }
             else
             {

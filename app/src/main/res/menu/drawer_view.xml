@@ -3,19 +3,19 @@
 <group android:checkableBehavior="single">
     <item
         android:id="@+id/nav_home_fragment"
-        android:icon="@drawable/ic_launcher_foreground"
+            android:icon="@drawable/ic_home"
         android:title="Home" />
     <item
         android:id="@+id/nav_first_fragment"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_car"
         android:title="Drive Mode" />
     <item
         android:id="@+id/nav_second_fragment"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_timer"
         android:title="Set Timer" />
     <item
         android:id="@+id/nav_third_fragment"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/ic_baseline_dashboard_24"
         android:title="Dashboard" />
 
     <item android:title="Sub items">
