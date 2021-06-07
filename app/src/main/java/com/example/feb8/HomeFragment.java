@@ -50,9 +50,14 @@ public class HomeFragment extends Fragment {
     int currentstate=0;
     private List<Habits> dataList;
     private Activity context;
-    public static int LightUpdateStatus=0;
 
-   MainAdapter mainAdapter;
+    /**
+     * For dashboard Purpose
+     */
+    public static int LightUpdateStatus=0;
+    public static int PostureUpdateStatus=0;
+
+
 
     SensorEventListener lightListener = new SensorEventListener() {
         @Override
@@ -65,9 +70,8 @@ public class HomeFragment extends Fragment {
                 tv.setTextColor(getResources().getColor(R.color.amarathRed));
                 tv.setText("TOO DARK TO USE YOUR PHONE");
 
-                mainAdapter = new MainAdapter(context,dataList);
-               // mainAdapter.UpdateLightInfo();
-                LightUpdateStatus=1;
+
+                LightUpdateStatus=1;//if the user looks at dashboard when it is dark, it increases count
             }
             else
             {
@@ -75,8 +79,9 @@ public class HomeFragment extends Fragment {
                 tv.setBackgroundResource(R.color.teaGreen);
                 tv.setTextColor(getResources().getColor(R.color.forestGreen));
                 tv.setText("IT IS BRIGHT!");
+                LightUpdateStatus=0;
             }
-            // tvlight.setText("Illumination:"+values[0]);
+
         }
 
         @Override
@@ -143,6 +148,7 @@ public class HomeFragment extends Fragment {
                 tv2.setBackgroundResource(R.color.teaGreen);
                 tv2.setTextColor(getResources().getColor(R.color.forestGreen));
                 tv2.setText("YOUR POSTURE IS \n SAFE");
+                PostureUpdateStatus=0;
             }
             else
             {
@@ -150,8 +156,8 @@ public class HomeFragment extends Fragment {
                 tv2.setBackgroundResource(R.color.melon);
                 tv2.setTextColor(getResources().getColor(R.color.amarathRed));
                 tv2.setText("YOUR POSTURE IS \n UNSAFE");
+                PostureUpdateStatus=1;
             }
-            // tv.setText(msg);
 
         }
 

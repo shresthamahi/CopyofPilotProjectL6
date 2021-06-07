@@ -20,6 +20,12 @@ public interface HabitsDao {
     @Query("UPDATE Habits SET lightInfo = :newVal where ID =1")
     void updateLightInfo(int newVal);
 
+    @Query("UPDATE Habits SET postureInfo = :newVal where ID =1")
+    void updatePostureInfo(int newVal);
+
+    @Query("UPDATE Habits SET drivingInfo = :newVal where ID =1")
+    void updateDriveCallInfo(int newVal);
+
 
     @Query("SELECT * FROM Habits")
     List<Habits> getAll();
