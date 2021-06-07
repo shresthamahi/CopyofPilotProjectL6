@@ -1,5 +1,6 @@
 package com.example.feb8;
 
+import android.app.Activity;
 import android.app.KeyguardManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -18,6 +19,11 @@ import android.os.IBinder;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import com.example.feb8.model.Habits;
+import com.example.feb8.model.RoomDB;
+
+import java.util.List;
+
 public class MonitoringService extends Service {
     public static final String CHANNEL_ID = "ForegroundServiceChannels";
     public static final String CHANNEL_ID2 = "ForegroundServiceChannels";
@@ -31,6 +37,7 @@ public class MonitoringService extends Service {
     int roll;
     KeyguardManager keyguardManager;
 
+
     SensorEventListener lightListener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent event) {
@@ -42,6 +49,7 @@ public class MonitoringService extends Service {
                     keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
                     if (!keyguardManager.isDeviceLocked()) {
                         addLightNotification();
+
                         LightInformed++;
                     }
                 }

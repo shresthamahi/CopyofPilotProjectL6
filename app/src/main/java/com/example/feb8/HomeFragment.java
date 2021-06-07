@@ -1,5 +1,6 @@
 package com.example.feb8;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Sensor;
@@ -17,13 +18,19 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.feb8.model.Habits;
+import com.example.feb8.model.RoomDB;
+import com.example.feb8.viewModel.MainAdapter;
 import com.google.android.material.slider.Slider;
+
+import java.util.List;
 
 import static android.content.Context.SENSOR_SERVICE;
 
@@ -41,6 +48,11 @@ public class HomeFragment extends Fragment {
     int monitoring = 0;
      final static String SWITCH_STATE = "0";
     int currentstate=0;
+    private List<Habits> dataList;
+    private Activity context;
+    public static int LightUpdateStatus=0;
+
+   MainAdapter mainAdapter;
 
     SensorEventListener lightListener = new SensorEventListener() {
         @Override
@@ -53,6 +65,9 @@ public class HomeFragment extends Fragment {
                 tv.setTextColor(getResources().getColor(R.color.amarathRed));
                 tv.setText("TOO DARK TO USE YOUR PHONE");
 
+                mainAdapter = new MainAdapter(context,dataList);
+               // mainAdapter.UpdateLightInfo();
+                LightUpdateStatus=1;
             }
             else
             {
