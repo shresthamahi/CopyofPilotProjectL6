@@ -145,7 +145,7 @@ public class MonitoringService extends Service {
                 .setContentTitle("FEB8 Foreground Service")
                 .setContentText(input)
                 .setContentIntent(pendingIntent)
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setSmallIcon(R.drawable.ic_eye)
                 .build();
 
         startForeground(1,notification); //foreground notification started
@@ -192,7 +192,7 @@ public class MonitoringService extends Service {
     }
     private void addPostureNotification() {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setSmallIcon(R.drawable.ic_posture_icon)
                 .setContentTitle("Posture Notification")
 
                 .setContentText("Your Posture is Incorrect")

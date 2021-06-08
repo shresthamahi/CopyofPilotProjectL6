@@ -27,6 +27,7 @@ public class IncomingCallReceiver extends BroadcastReceiver {
      * For dashboard Purpose
      */
     public static int silentstatus=0;
+    public static  int NearEar=0;
 
     int drivingMode=99;
     AudioManager audioManager;
@@ -44,14 +45,14 @@ public class IncomingCallReceiver extends BroadcastReceiver {
         public void onSensorChanged(SensorEvent event) {
             if (event.values[0]==0)
             {
-                Log.d(TAG,"Over here inside proxmity Sensors");
-              nc.createNotificationChannel();
-              nc.addHandsFreeNotification();
+                Log.d(TAG,"Nearr your earr");
+                NearEar=1;
 
             }
             else
             {
                 Log.d(TAG,"Far from your earr!!!");
+                //NearEar=0;
             }
         }
 

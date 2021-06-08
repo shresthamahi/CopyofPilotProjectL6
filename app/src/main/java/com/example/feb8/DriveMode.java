@@ -1,5 +1,6 @@
 package com.example.feb8;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,8 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 public class DriveMode extends Fragment {
 
@@ -23,6 +26,14 @@ public class DriveMode extends Fragment {
     ToggleButton toggleButton;
     View rootview;
     public static int click=0;
+
+    /**
+     * For shared Preferences
+     */
+    public static final String SHARED_PREFS= "sharedPrefs";
+    public static final String BUTTON_STATE= "button";
+    public boolean ButtonOnOff;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +51,9 @@ public class DriveMode extends Fragment {
         rootview = inflater.inflate(R.layout.fragment_drive_mode, container, false);
         toggleButton =(ToggleButton) rootview.findViewById(R.id.toggleButton);
         t1= (TextView)rootview.findViewById(R.id.textView2);
+
+        loadData();
+        updateViews();
 
         return rootview;
     }
@@ -62,17 +76,52 @@ public class DriveMode extends Fragment {
                     state=1;
                     click=1;
                     toggleButton.setTextOn("Drive MODE ON");
-                    t1.setText("The click state is:"+state);
+
                 }
                 else
                 {
                     state=0;
                     click=0;
                     toggleButton.setTextOff("Drive MODE OFF");
-                    t1.setText("The click state is:"+state);
+
                 }
             }
         });
 
         }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        saveData();
+    }
+
+    public void saveData()
+    {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putBoolean(BUTTON_STATE, toggleButton.isChecked());
+        editor.apply();
+    }
+
+    public void loadData()
+    {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        ButtonOnOff= sharedPreferences.getBoolean(BUTTON_STATE,false);
+    }
+
+    public void updateViews()
+    {
+        toggleButton.setChecked(ButtonOnOff);
+        if (ButtonOnOff)
+        {
+            toggleButton.setText("Drive MODE ON");
+        }
+        else
+        {
+            toggleButton.setText("Drive MODE OFF");
+        }
+
+    }
 }

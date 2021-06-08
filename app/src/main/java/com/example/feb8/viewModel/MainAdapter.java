@@ -83,11 +83,20 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
         }
 
+        if (IncomingCallReceiver.NearEar ==1)
+        {
+            int oldval= data.getHandsFreeCallInfo();
+            int newval= oldval+1;
+            database.mainDao().updateHandsFreeMode(newval);
+
+        }
+
 
         String temp= Integer.toString(data.getLightInfo());
         String temp2= Integer.toString(data.getPostureInfo());
         String temp3= Integer.toString(data.getDrivingInfo());
         String temp4= Integer.toString(data.getHandsFreeCallInfo());
+
 
         holder.textViewLight.setText(temp);
         holder.textViewPosture.setText(temp2);

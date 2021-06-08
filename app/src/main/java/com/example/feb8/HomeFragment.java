@@ -2,6 +2,7 @@ package com.example.feb8;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -32,6 +33,7 @@ import com.google.android.material.slider.Slider;
 
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
 import static android.content.Context.SENSOR_SERVICE;
 
 
@@ -50,6 +52,13 @@ public class HomeFragment extends Fragment {
     int currentstate=0;
     private List<Habits> dataList;
     private Activity context;
+
+    /**
+     * For shared Preferences
+     */
+    public static final String SHARED_PREFS= "sharedPrefs";
+    public static final String SWITCH1= "switch1";
+    public boolean switchOnOff;
 
     /**
      * For dashboard Purpose
@@ -209,6 +218,10 @@ public class HomeFragment extends Fragment {
             // finish();
         }
 
+        loadData();
+        updateViews();
+
+
         // Inflate the layout for this fragment
         return rootView;
     }
@@ -260,6 +273,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
+        saveData();
         sensorManager.unregisterListener(rvListener);
         sensorManager.unregisterListener(lightListener);
     }
@@ -269,6 +283,26 @@ public class HomeFragment extends Fragment {
 
         super.onSaveInstanceState(outState);
         outState.putInt(SWITCH_STATE,currentstate);
+    }
+
+    public void saveData() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putBoolean(SWITCH_STATE, slider.isChecked());
+        editor.apply();
+
+    }
+
+    public void loadData()
+    {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        switchOnOff= sharedPreferences.getBoolean(SWITCH_STATE,false);
+    }
+
+    public void updateViews()
+    {
+        slider.setChecked(switchOnOff);
     }
 
 }
