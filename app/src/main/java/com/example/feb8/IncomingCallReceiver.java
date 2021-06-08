@@ -35,8 +35,9 @@ public class IncomingCallReceiver extends BroadcastReceiver {
     Sensor proximitySensor;
 
     final public static String TAG = "Proximity Sensor";
-
-   NotificationClass nc;
+    final public static String TAG2 = "Proximity Sensor";
+   NotificationClass nc= new NotificationClass();
+   MonitoringService ms = new MonitoringService();
 
     SensorEventListener proxiListener= new SensorEventListener() {
         @Override
@@ -50,7 +51,7 @@ public class IncomingCallReceiver extends BroadcastReceiver {
             }
             else
             {
-
+                Log.d(TAG,"Far from your earr!!!");
             }
         }
 
@@ -79,7 +80,12 @@ public class IncomingCallReceiver extends BroadcastReceiver {
                 }
                 else
                 {
+                    Log.d(TAG,"Driving mode is off");
                     silentstatus=0;
+                   // nc.createNotificationChannel();
+                    //nc.addHandsFreeNotification();
+                    ms.createNotificationChannel();
+                    ms.addHandsFreeNotification();
                 }
 
             }
@@ -90,7 +96,17 @@ public class IncomingCallReceiver extends BroadcastReceiver {
                 sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
                 proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
                 audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+                audioManager.setMode( AudioManager.MODE_IN_CALL);
+                audioManager.setMode(AudioManager.MODE_RINGTONE);
                 audioManager.setSpeakerphoneOn(true);
+                if (audioManager.isSpeakerphoneOn())
+                {
+                    Log.d(TAG2,"Speaker is on");
+                }
+                else
+                {
+                    Log.d(TAG2,"Speaker is off");
+                }
 
                 if (proximitySensor == null) {
                     Toast.makeText(context, "No proximity sensor found in device.", Toast.LENGTH_SHORT).show();

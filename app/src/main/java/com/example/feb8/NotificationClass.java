@@ -1,5 +1,6 @@
 package com.example.feb8;
 
+import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -9,7 +10,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 public class NotificationClass {
-    Context context;
+    Activity context;
     public void addHandsFreeNotification() {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "hands-freemode")
                 .setSmallIcon(R.drawable.ic_hands_free_img)
@@ -24,7 +25,7 @@ public class NotificationClass {
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
 
         // notificationId is a unique int for each notification that you must define
-        notificationManager.notify(10, builder.build());
+        notificationManager.notify(17, builder.build());
     }
 
     public void createNotificationChannel() {

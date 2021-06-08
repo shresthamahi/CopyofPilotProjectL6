@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/Amazon">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="@color/Amazon"
+        android:orientation="vertical"
+        android:padding="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,23 +22,25 @@
             <TextView
                 android:id="@+id/tvLight"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:fontFamily="@font/amatica_sc_bold"
+                android:gravity="center|center_horizontal"
+                android:text="TextView"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/tvPosture"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:fontFamily="@font/amatica_sc_bold"
+                android:gravity="center|center_horizontal"
+                android:text="TextView"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
 
-            <TextView
-                android:id="@+id/tvDriveCalls"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
         </LinearLayout>
 
         <LinearLayout
@@ -44,37 +50,59 @@
 
             <TextView
                 android:id="@+id/textView8"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/DashboardLight" />
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/DashboardLight"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView9"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/DashboardPosture" />
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/DashboardPosture"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/DashboardDriveCalls" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvDriveCalls"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/amatica_sc_bold"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/tvHandsFreeCall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="TextView" />
+                android:fontFamily="@font/amatica_sc_bold"
+                android:gravity="center"
+                android:text="TextView"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -84,10 +112,29 @@
 
             <TextView
                 android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/DashboardHandsFreeCalls" />
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/DashboardHandsFreeCalls"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:padding="4dp"
+                android:text="@string/DashboardDriveCalls"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -97,7 +144,7 @@
 
             <Button
                 android:id="@+id/buttonReset"
-                android:layout_width="0dp"
+                android:layout_width="304dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_weight="1"
@@ -107,7 +154,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
@@ -115,7 +162,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="62dp"
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+                android:gravity="center|center_horizontal"
                 android:textColor="@color/amarathRed"
                 android:textSize="18sp"
                 android:textStyle="bold|italic" />

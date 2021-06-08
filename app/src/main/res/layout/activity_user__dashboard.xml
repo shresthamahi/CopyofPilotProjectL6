@@ -20,12 +20,17 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="@color/Amazon"
+            android:fontFamily="casual"
+            android:gravity="center"
             android:text="DASHBOARD"
-            android:textColor="@color/forestGreen"
+            android:textColor="@color/white"
             android:textSize="30sp"
+            android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -35,9 +40,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
-            android:layout_width="407dp"
-            android:layout_height="566dp"
-            android:layout_marginStart="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginTop="32dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4"
