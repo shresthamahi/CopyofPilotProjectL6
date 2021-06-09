@@ -2,6 +2,7 @@ package com.example.feb8;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -84,14 +85,18 @@ public class TimerFragment extends Fragment {
         setTimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new CountDownTimer(6000, 1000) {
+                new CountDownTimer(5000, 1000) {
 
                     public void onTick(long millisUntilFinished) {
+                       setTimer.setClickable(false);
+
                     }
 
                     public void onFinish() {
                        createNotificationChannel();
                        addTimeNotification();
+                        setTimer.setClickable(true);
+
                     }
                 }.start();
             }
@@ -102,7 +107,7 @@ public class TimerFragment extends Fragment {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel serviceChannel = new NotificationChannel(
                     CHANNEL_ID,
-                    "Foreground Service Channel",
+                    "Timer Service Channel",
                     NotificationManager.IMPORTANCE_DEFAULT
             );
             NotificationManager manager = getActivity().getSystemService(NotificationManager.class);

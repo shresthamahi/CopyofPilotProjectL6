@@ -207,6 +207,7 @@ public class MonitoringService extends Service {
         notificationManager.notify(3, builder.build());
     }
 
+
     @Override
     public void onDestroy() {
         //imp to unregister sensors when the service is stopped because we dont want sensors after that

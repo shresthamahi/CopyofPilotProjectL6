@@ -26,6 +26,12 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="minutes">Time in Minutes</string>
+    <string name="StartTimer">Start Timer</string>
+    <string name="zero">0</string>
+
+    <string name="WelcomeToTimer">Your Personal Screen-time Tracker</string>
+    <string name="timeKeeper">Timekeeper</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>

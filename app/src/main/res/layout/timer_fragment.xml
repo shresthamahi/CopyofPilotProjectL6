@@ -5,92 +5,132 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="@color/Amazon"
+    android:padding="3dp"
     tools:context=".TimerFragment">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnDecrease"
-        android:layout_width="50dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
-        android:clickable="true"
-        android:src="@android:drawable/arrow_down_float"
-        app:backgroundTint="@color/forestGreen"
-        app:layout_constraintStart_toEndOf="@+id/tvtimer"
-        app:layout_constraintTop_toBottomOf="@+id/btnIncrease" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="391dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="32dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="@color/mintCream"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="@string/timeKeeper"
+        android:textColor="@color/hunterGreen"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="171dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="4dp"
-        android:text="Set Timer"
-        android:textColor="@color/purple_200"
-        android:textSize="36sp"
+        android:layout_width="378dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="132dp"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="@string/WelcomeToTimer"
+        android:textColor="@color/white"
+        android:textSize="22sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <SeekBar
-        android:id="@+id/seekBar"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="204dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="20dp"
-        android:max="4"
-        android:progress="1"
-        android:progressTint="@color/hunterGreen"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardView"
+        android:layout_width="359dp"
+        android:layout_height="397dp"
+        android:layout_marginTop="44dp"
+        android:elevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:tickMarkTint="@color/crayolaGreen" />
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="232dp"
-        android:text="Minutes"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/tvtimersecond"
+            android:layout_width="51dp"
+            android:layout_height="63dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="132dp"
+            android:gravity="center_horizontal"
+            android:text="@string/zero"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/tvtimer"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvtimer"
-        android:layout_width="82dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="116dp"
-        android:gravity="center_horizontal"
-        android:text="0"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="84dp"
+            android:text="@string/minutes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnIncrease"
-        android:layout_width="50dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="100dp"
-        android:clickable="true"
-        android:src="@android:drawable/arrow_up_float"
-        app:backgroundTint="@color/forestGreen"
-        app:borderWidth="0dp"
-        app:layout_constraintStart_toEndOf="@+id/tvtimer"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <TextView
+            android:id="@+id/tvtimer"
+            android:layout_width="59dp"
+            android:layout_height="59dp"
+            android:layout_marginStart="116dp"
+            android:layout_marginTop="28dp"
+            android:gravity="center_horizontal"
+            android:text="@string/zero"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-    <Button
-        android:id="@+id/btnStartTimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="28dp"
-        android:text="Start Timer"
-        app:icon="@color/crayolaGreen"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnDecrease" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnIncrease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="84dp"
+            android:layout_marginEnd="28dp"
+            android:clickable="true"
+            android:elevation="6dp"
+            android:src="@drawable/ic_newarrowup"
+            app:backgroundTint="@color/crayolaGreen"
+            app:borderWidth="0dp"
+            app:fabSize="mini"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnDecrease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="28dp"
+            android:clickable="true"
+            android:src="@drawable/ic_newarrowdown"
+            app:backgroundTint="@color/crayolaGreen"
+            app:fabSize="mini"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnIncrease" />
+
+        <Button
+            android:id="@+id/btnStartTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:text="@string/StartTimer"
+            app:icon="@color/crayolaGreen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvtimer" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

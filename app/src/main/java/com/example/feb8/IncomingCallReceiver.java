@@ -52,7 +52,7 @@ public class IncomingCallReceiver extends BroadcastReceiver {
             else
             {
                 Log.d(TAG,"Far from your earr!!!");
-                //NearEar=0;
+                NearEar=0;
             }
         }
 
@@ -83,15 +83,13 @@ public class IncomingCallReceiver extends BroadcastReceiver {
                 {
                     Log.d(TAG,"Driving mode is off");
                     silentstatus=0;
-                   // nc.createNotificationChannel();
-                    //nc.addHandsFreeNotification();
-                    ms.createNotificationChannel();
-                    ms.addHandsFreeNotification();
+
                 }
 
             }
             else if(state ==2)
             {
+                silentstatus=0;
 
                 Toast.makeText(context, "Call is received. call state is "+ state, Toast.LENGTH_SHORT).show();
                 sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
@@ -124,12 +122,13 @@ public class IncomingCallReceiver extends BroadcastReceiver {
             else if(state==0)
             {
 
+
                 Toast.makeText(context, "Call is Cut nOw. call state is "+ state, Toast.LENGTH_SHORT).show();
                 sensorManager.unregisterListener(proxiListener);
             }
             else
             {
-
+                silentstatus=0;
             }
         }catch (Exception e)
         {

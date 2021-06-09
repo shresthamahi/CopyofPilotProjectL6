@@ -138,10 +138,7 @@ public class MainActivity extends AppCompatActivity {
                 ft2.commit();
                 break;
             case R.id.nav_third_fragment:
-               // fragmentNum=4;
-               // FragmentTransaction ft4= fragmentManager.beginTransaction();
-              //  ft4.replace(R.id.flContent,new Dashboard());
-              //  ft4.commit();
+
                 Intent intent= new Intent(MainActivity.this,User_Dashboard.class);
                 startActivity(intent);
                 break;
@@ -150,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Insert the fragment by replacing any existing fragment
-
 
 
         // Highlight the selected item has been done by NavigationView

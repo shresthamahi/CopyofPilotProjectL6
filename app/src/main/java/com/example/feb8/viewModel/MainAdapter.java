@@ -3,6 +3,7 @@ package com.example.feb8.viewModel;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
+
+    public static final String TAG="Checker";
 
     private List<Habits> dataList;
     private Activity context;
@@ -75,13 +78,16 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
         }
 
+        Log.d(TAG,"the silent status is:"+IncomingCallReceiver.silentstatus);
         if (IncomingCallReceiver.silentstatus ==1)
         {
+
             int oldval= data.getDrivingInfo();
             int newval= oldval+1;
             database.mainDao().updateDriveCallInfo(newval);
-
         }
+        IncomingCallReceiver.silentstatus=5;
+        Log.d(TAG,"the UPDATED silent status is:"+IncomingCallReceiver.silentstatus);
 
         if (IncomingCallReceiver.NearEar ==1)
         {
@@ -100,8 +106,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
         holder.textViewLight.setText(temp);
         holder.textViewPosture.setText(temp2);
-        holder.textViewDriveCalls.setText(temp3);
-        holder.tvHandsFreeCall.setText(temp4);
+        holder.textViewDriveCalls.setText(temp4);
+        holder.tvHandsFreeCall.setText(temp3);
 
 
     }
