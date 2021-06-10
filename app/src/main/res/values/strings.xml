@@ -26,7 +26,7 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-    <string name="minutes">Time in Minutes</string>
+    <string name="minutes">Time in Minutes :</string>
     <string name="StartTimer">Start Timer</string>
     <string name="zero">0</string>
 
