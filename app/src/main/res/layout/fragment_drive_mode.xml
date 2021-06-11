@@ -5,17 +5,23 @@
     android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="@color/Amazon"
     tools:context=".DriveMode">
 
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:id="@+id/DriveTitletv"
-        android:layout_width="226dp"
+        android:layout_width="391dp"
         android:layout_height="66dp"
         android:layout_marginTop="28dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="casual"
+        android:gravity="center"
         android:text="Driving Mode"
-        android:textColor="@color/purple_200"
+        android:textColor="@color/forestGreen"
         android:textSize="36sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,21 +34,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="179dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="352dp"
         android:layout_marginEnd="144dp"
+        android:fontFamily="casual"
         android:text="ToggleButton"
         android:textOff="@string/DriveModeOff"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.413"
+        app:layout_constraintHorizontal_bias="0.772"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DriveTitletv" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="391dp"
+        android:layout_height="249dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="131dp"
+        android:background="@color/mintCream"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/DriveTitletv" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvInformUser"
+        android:layout_width="391dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="210dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="2dp"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:inputType="textMultiLine"
+        android:padding="6dp"
+        android:text="@string/DriveModeInfo"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toggleButton" />
 

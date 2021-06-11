@@ -5,6 +5,8 @@
     android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="@color/Amazon"
     android:soundEffectsEnabled="true"
     tools:context=".HomeFragment">
 
@@ -12,15 +14,20 @@
 
     <TextView
         android:id="@+id/tv1"
-        android:layout_width="wrap_content"
+        android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
-        android:layout_marginLeft="104dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="107dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="@color/mintCream"
+        android:fontFamily="casual"
+        android:gravity="center"
         android:shadowColor="@color/purple_200"
         android:text="HOME PAGE"
-        android:textColor="@color/purple_200"
+        android:textColor="@color/pineGreen"
         android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,7 +36,7 @@
         android:layout_width="217dp"
         android:layout_height="211dp"
         android:layout_marginTop="112dp"
-        android:background="@color/melon"
+        android:background="@color/mintCream"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,12 +44,11 @@
 
     <TextView
         android:id="@+id/TVLightInfo"
-        android:layout_width="412dp"
+        android:layout_width="409dp"
         android:layout_height="84dp"
         android:layout_marginTop="96dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:gravity="center_horizontal"
+        android:gravity="center"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -51,11 +57,12 @@
 
     <TextView
         android:id="@+id/TVPostureInfo"
-        android:layout_width="410dp"
+        android:layout_width="409dp"
         android:layout_height="87dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/TVLightInfo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TVLightInfo" />
 

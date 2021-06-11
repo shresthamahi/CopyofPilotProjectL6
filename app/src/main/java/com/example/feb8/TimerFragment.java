@@ -111,7 +111,7 @@ public class TimerFragment extends Fragment {
                 if (preferredTime!=0){
                     tvmsg.setText("You will be alerted by alaram sound in "+preferredTime+" minutes");
                     preferredTime *= 1000*60;
-                    setTimer.setBackgroundColor(getResources().getColor(R.color.slateGrey));
+
 
                     new CountDownTimer(8000, 1000) {
 
@@ -153,16 +153,6 @@ public class TimerFragment extends Fragment {
         r.play();
     }
 
-    public void stopService() {
-        Intent serviceIntent = new Intent(getActivity(),TimerService.class);
-        getActivity().stopService(serviceIntent);
-    }
-
-    public void startService() {
-        Intent serviceIntent = new Intent(getActivity(), TimerService.class);
-        serviceIntent.putExtra("inputExtra", "Timer Service");
-        ContextCompat.startForegroundService(getActivity(), serviceIntent);
-    }
 
 
     @Override

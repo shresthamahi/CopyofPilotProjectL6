@@ -83,7 +83,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tvDriveCalls"
+                android:id="@+id/tvHandsFreeCall"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_weight="1"
@@ -94,7 +94,7 @@
                 android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/tvHandsFreeCall"
+                android:id="@+id/tvDriveCall"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_weight="1"

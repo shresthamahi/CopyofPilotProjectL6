@@ -1,14 +1,11 @@
 package com.example.feb8.viewModel;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,7 +17,6 @@ import com.example.feb8.R;
 import com.example.feb8.model.Habits;
 import com.example.feb8.model.RoomDB;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
@@ -78,7 +74,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
         }
 
-        Log.d(TAG,"the silent status is:"+IncomingCallReceiver.silentstatus);
+
         if (IncomingCallReceiver.silentstatus ==1)
         {
 
@@ -87,7 +83,9 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             database.mainDao().updateDriveCallInfo(newval);
         }
         IncomingCallReceiver.silentstatus=5;
-        Log.d(TAG,"the UPDATED silent status is:"+IncomingCallReceiver.silentstatus);
+
+
+        Log.d("newtags","the NearEar value is:"+IncomingCallReceiver.NearEar);
 
         if (IncomingCallReceiver.NearEar ==1)
         {
@@ -106,8 +104,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
         holder.textViewLight.setText(temp);
         holder.textViewPosture.setText(temp2);
-        holder.textViewDriveCalls.setText(temp4);
-        holder.tvHandsFreeCall.setText(temp3);
+        holder.textViewDriveCalls.setText(temp3);
+        holder.tvHandsFreeCall.setText(temp4);
 
 
     }
@@ -128,7 +126,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
             textViewLight= itemView.findViewById(R.id.tvLight);
             textViewPosture = itemView.findViewById(R.id.tvPosture);
-            textViewDriveCalls = itemView.findViewById(R.id.tvDriveCalls);
+            textViewDriveCalls = itemView.findViewById(R.id.tvDriveCall);
             tvHandsFreeCall= itemView.findViewById(R.id.tvHandsFreeCall);
             btnReset = itemView.findViewById(R.id.buttonReset);
             tvinfo = itemView.findViewById(R.id.tvInfo);

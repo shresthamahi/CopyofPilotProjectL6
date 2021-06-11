@@ -1,6 +1,8 @@
 package com.example.feb8;
 
 import android.content.SharedPreferences;
+import android.graphics.drawable.AnimationDrawable;
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -26,6 +29,7 @@ public class DriveMode extends Fragment {
     ToggleButton toggleButton;
     View rootview;
     public static int click=0;
+    ImageView imageView;
 
     /**
      * For shared Preferences
@@ -50,12 +54,19 @@ public class DriveMode extends Fragment {
                              Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_drive_mode, container, false);
         toggleButton =(ToggleButton) rootview.findViewById(R.id.toggleButton);
-        t1= (TextView)rootview.findViewById(R.id.textView2);
+        imageView = (ImageView) rootview.findViewById(R.id.imageView3);
+        imageView.setBackgroundResource(R.drawable.car_moving_animation);
 
         loadData();
         updateViews();
 
         return rootview;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
     }
 
     @Override
@@ -68,6 +79,7 @@ public class DriveMode extends Fragment {
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
 
+        AnimationDrawable frameAnimation = (AnimationDrawable) imageView.getBackground();
         toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -77,9 +89,13 @@ public class DriveMode extends Fragment {
                     click=1;
                     toggleButton.setTextOn("Drive MODE ON");
 
+                    frameAnimation.start();
+
+
                 }
                 else
                 {
+                    frameAnimation.stop();
                     state=0;
                     click=0;
                     toggleButton.setTextOff("Drive MODE OFF");

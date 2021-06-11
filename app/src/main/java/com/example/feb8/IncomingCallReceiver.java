@@ -2,6 +2,7 @@ package com.example.feb8;
 
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
@@ -28,6 +29,7 @@ public class IncomingCallReceiver extends BroadcastReceiver {
      */
     public static int silentstatus=0;
     public static  int NearEar=0;
+
 
     int drivingMode=99;
     AudioManager audioManager;
@@ -72,6 +74,7 @@ public class IncomingCallReceiver extends BroadcastReceiver {
 
             if (state==1)
             {
+                sensorManager.unregisterListener(proxiListener);
                 Toast.makeText(context, "The status of driving mode is "+ drivingMode, Toast.LENGTH_SHORT).show();
 
                 if (drivingMode==1) {
@@ -82,21 +85,21 @@ public class IncomingCallReceiver extends BroadcastReceiver {
                 else
                 {
                     Log.d(TAG,"Driving mode is off");
-                    silentstatus=0;
+
 
                 }
 
             }
             else if(state ==2)
             {
-                silentstatus=0;
+
 
                 Toast.makeText(context, "Call is received. call state is "+ state, Toast.LENGTH_SHORT).show();
                 sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
                 proximitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
                 audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
-                audioManager.setMode( AudioManager.MODE_IN_CALL);
-                audioManager.setMode(AudioManager.MODE_RINGTONE);
+                audioManager.setMode( AudioManager.MODE_IN_COMMUNICATION);
+
                 audioManager.setSpeakerphoneOn(true);
                 if (audioManager.isSpeakerphoneOn())
                 {
@@ -111,10 +114,11 @@ public class IncomingCallReceiver extends BroadcastReceiver {
                     Toast.makeText(context, "No proximity sensor found in device.", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    // registering our sensor with sensor manager.
+                  //  registering our sensor with sensor manager.
                     sensorManager.registerListener(proxiListener,
                             proximitySensor,
-                            SensorManager.SENSOR_DELAY_NORMAL); }
+                           SensorManager.SENSOR_DELAY_NORMAL);
+                    }
 
 
 
@@ -128,7 +132,7 @@ public class IncomingCallReceiver extends BroadcastReceiver {
             }
             else
             {
-                silentstatus=0;
+
             }
         }catch (Exception e)
         {
@@ -137,6 +141,8 @@ public class IncomingCallReceiver extends BroadcastReceiver {
 
 
     }
+
+
 
 
 }
